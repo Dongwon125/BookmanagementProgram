@@ -1,5 +1,11 @@
 package Bookmanagement1;
 import java.util.*;
+
+import Books.Book;
+import Books.FairyTaleBook;
+import Books.RomanceBook;
+import Books.ThrilerBook;
+
 public class BookManagement {
 		ArrayList <Book> Books = new ArrayList<Book>();
 		Scanner input;
@@ -10,16 +16,45 @@ public class BookManagement {
 		}
 	
 		public void addBooks() {
-			Book book = new Book();
-			System.out.println("Type the book's Title : ");
-			book.Title = input.next();
-			System.out.println("Type the book's Author : ");
-			book.Author = input.next();
-			System.out.println("Type the book's Publisher : ");
-			book.Publisher = input.next();
-			System.out.println("Type the book's Id : ");
-			book.BookId = input.nextInt();
-			Books.add(book);
+			int Gnum = 0;
+			Book book;
+			while (Gnum != 1 && Gnum != 2 && Gnum!=3 && Gnum!=4)  {
+				System.out.println("1. Fiction");
+				System.out.println("2. Romance");
+				System.out.println("3. Thriler");
+				System.out.println("4. FariyTale");
+				System.out.println("select the number for Book Genre. :");
+				Gnum = input.nextInt();
+			
+				if(Gnum == 1) {
+					book = new Book();
+					book.getBookInput(input);
+					Books.add(book);
+					break;
+				}
+				else if(Gnum == 2) {
+					book = new RomanceBook();
+					book.getBookInput(input);
+					Books.add(book);
+					break;
+				}
+				else if(Gnum == 3){
+					book = new ThrilerBook();
+					book.getBookInput(input);
+					Books.add(book);
+					break;
+					
+				}
+				else if(Gnum ==4) {
+					book = new FairyTaleBook();
+					book.getBookInput(input);
+					Books.add(book);
+					break;
+				}
+				else {
+					System.out.println("select the number for Book Genre. :");
+				}
+			}
 		}
 		public void deleteBooks() {
 			System.out.println("Type the book's Id : ");
@@ -29,7 +64,7 @@ public class BookManagement {
 				System.out.print("no Books Added");
 			}
 			for(int i=0; i<Books.size();i++) {
-				if (Books.get(i).BookId == Bookid) {
+				if (Books.get(i).getBookId() == Bookid) {
 					index = i;
 					break;
 				}
@@ -49,7 +84,7 @@ public class BookManagement {
 			int BookId = input.nextInt();
 			for(int n=0; n<Books.size();n++) {
 				Book book = Books.get(n);
-				if (book.BookId == BookId) {
+				if (book.getBookId() == BookId) {
 					int num = 0;
 					while (num !=5) {
 						System.out.println("### Book's Info Edit Menu ###");
@@ -61,19 +96,23 @@ public class BookManagement {
 						num = input.nextInt();
 						if (num ==1) {
 							System.out.print("Type Title : ");
-							book.Title = input.next();
+							String Title = input.next();
+							book.setTitle(Title);
 						}
 						else if (num ==2) {
 							System.out.print("Type Author : ");
-							book.Author = input.next(); 
+							String Author = input.next(); 
+							book.setAuthor(Author);
 						}
 						else if (num ==3) {
 							System.out.print("Type Publisher : ");
-							book.Publisher = input.next();
+							String Publisher = input.next();
+							book.setPublisher(Publisher);
 						}
 						else if (num ==4) {
 							System.out.print("Type Book's Id : ");
-							book.BookId = input.nextInt();
+							int BookId1 = input.nextInt();
+							book.setBookId(BookId1);
 						}
 						else {
 							break;
@@ -84,9 +123,9 @@ public class BookManagement {
 				
 			}
 		}
-		public void viewBooks() {
+		public void viewBooks() {     
 		for(Book book : Books ) {
-			System.out.println(book.printInfo());
+			book.printInfo();
 		}
 		
 	}

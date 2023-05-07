@@ -2,9 +2,11 @@ package Bookmanagement1;
 import java.util.*;
 
 import Books.Book;
+import Books.BookGenre;
 import Books.FairyTaleBook;
 import Books.RomanceBook;
 import Books.ThrilerBook;
+import Books.ThrillerBook;
 
 public class BookManagement {
 		ArrayList <Book> Books = new ArrayList<Book>();
@@ -35,14 +37,14 @@ public class BookManagement {
 				}
 				else if(Gnum == 2) {
 					System.out.println("---Romance---");
-					book = new RomanceBook();
+					book = new RomanceBook(BookGenre.Romance);
 					book.getBookInput(input);
 					Books.add(book);
 					break;
 				}
 				else if(Gnum == 3){
 					System.out.println("---Thriller---");
-					book = new ThrilerBook();
+					book = new ThrillerBook(BookGenre.Thriller);
 					book.getBookInput(input);
 					Books.add(book);
 					break;
@@ -50,7 +52,7 @@ public class BookManagement {
 				}
 				else if(Gnum ==4) {
 					System.out.println("---FairyTale---");
-					book = new FairyTaleBook();
+					book = new FairyTaleBook(BookGenre.FairyTale);
 					book.getBookInput(input);
 					Books.add(book);
 					break;

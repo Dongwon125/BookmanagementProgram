@@ -2,10 +2,10 @@ package Books;
 
 import java.util.Scanner;
 
-public class RomanceBook extends Book {
-	  int RomanceType;
+public class ThrillerBook extends Book {
+	  int ThrillerType;
 	   String type;
-	   public RomanceBook(BookGenre genre) {
+	   public ThrillerBook(BookGenre genre) {
 		   this.genre = genre;
 	   }
 	public void getBookInput(Scanner input) {
@@ -38,9 +38,25 @@ public class RomanceBook extends Book {
 		String Publisher = input.next();
 		this.setPublisher(Publisher);
 		
+		  System.out.println("Type the Thriller's Type ");
+	       System.out.println("1 : Psychological Thriller 2 : Crime Thriller 3 : Supernatural Thriller");
+	       ThrillerType = input.nextInt();
+	       switch (ThrillerType){
+	       case 1 :
+	    	   type = "Psychological Thriller";
+	    	   break;
+	       case 2 :
+	    	   type = "Crime Thriller";
+	    	   break;
+	       case 3 :
+	    	   type = "Supernatural Thriller";
+	       default :
+	       }
+		
 		System.out.println("Type the book's Id : ");
 		int BookId = input.nextInt();
 		this.setBookId(BookId);
+		
 		
 	}
 	public void printInfo() {
@@ -69,5 +85,6 @@ public class RomanceBook extends Book {
 
 
 }
+
 
 

@@ -21,24 +21,27 @@ public class BookManagement {
 			while (Gnum != 1 && Gnum != 2 && Gnum!=3 && Gnum!=4)  {
 				System.out.println("1. Fiction");
 				System.out.println("2. Romance");
-				System.out.println("3. Thriler");
+				System.out.println("3. Thriller");
 				System.out.println("4. FariyTale");
 				System.out.println("select the number for Book Genre. :");
 				Gnum = input.nextInt();
 			
 				if(Gnum == 1) {
+					System.out.println("---Fiction---");
 					book = new Book();
 					book.getBookInput(input);
 					Books.add(book);
 					break;
 				}
 				else if(Gnum == 2) {
+					System.out.println("---Romance---");
 					book = new RomanceBook();
 					book.getBookInput(input);
 					Books.add(book);
 					break;
 				}
 				else if(Gnum == 3){
+					System.out.println("---Thriller---");
 					book = new ThrilerBook();
 					book.getBookInput(input);
 					Books.add(book);
@@ -46,6 +49,7 @@ public class BookManagement {
 					
 				}
 				else if(Gnum ==4) {
+					System.out.println("---FairyTale---");
 					book = new FairyTaleBook();
 					book.getBookInput(input);
 					Books.add(book);
@@ -124,7 +128,8 @@ public class BookManagement {
 			}
 		}
 		public void viewBooks() {     
-		for(Book book : Books ) {
+			System.out.println(Books.size() + "권");
+			for(Book book : Books ) {
 			book.printInfo();
 		}
 		

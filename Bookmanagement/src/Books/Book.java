@@ -28,6 +28,10 @@ public class Book {
 		this.BookId = BookId;
 		
 	}
+	public Book(BookGenre fiction) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public String getTitle() {
 		return Title;
 	}

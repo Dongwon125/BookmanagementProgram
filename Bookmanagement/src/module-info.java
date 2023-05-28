@@ -6,4 +6,5 @@
  *
  */
 module Bookmanagement {
+	requires java.logging;
 }

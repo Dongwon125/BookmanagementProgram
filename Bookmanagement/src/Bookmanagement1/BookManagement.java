@@ -1,4 +1,6 @@
 package Bookmanagement1;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -9,9 +11,14 @@ import Books.Fiction;
 import Books.Romance;
 import Books.Thriller;
 
-public class BookManagement {
-    ArrayList <BookInput> Books = new ArrayList<BookInput>();//BookInput을 ArrayList로 관리
-    Scanner input;
+public class BookManagement implements Serializable {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 7024711903503998231L;
+	
+	ArrayList <BookInput> Books = new ArrayList<BookInput>();//BookInput을 ArrayList로 관리
+    transient Scanner input;
     BookManagement(Scanner input){
        this.input = input;
     }// 생성자

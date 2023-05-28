@@ -1,11 +1,17 @@
 package Books;
 
+import java.io.Serializable;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import exception.PubFormatException;
 
-public abstract class Book implements BookInput {
+public abstract class Book implements BookInput,Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5862630568538674392L;
+	
 	protected BookKind kind;
 	protected String Title;
 	protected String Author;
@@ -90,7 +96,7 @@ public abstract class Book implements BookInput {
 	        try {
 				this.setPublisher(publisher);
 			} catch (PubFormatException e) {
-				System.out.println("부정확한 출판사 이릅입니다! @@출판사 형식으로 써주세요");
+				System.out.println("부정확한 출판사 이름입니다! @@출판사 형식으로 써주세요");
 			}
 	 }
    }

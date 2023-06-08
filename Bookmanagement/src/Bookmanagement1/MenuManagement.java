@@ -7,6 +7,8 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+
+import gui.DefaultFrame;
 import log.EventLogger;
 
 public class MenuManagement {
@@ -19,7 +21,7 @@ public class MenuManagement {
 		if(bookManagement == null) {
 			bookManagement = new BookManagement(input);
 		}
-			
+		DefaultFrame Frame = new DefaultFrame(bookManagement);
 		int PW = 1234;
 		System.out.println("Type the admin PW : ");
 		int Pw = input.nextInt();
@@ -28,6 +30,7 @@ public class MenuManagement {
 			System.out.println("Wrong Access."); // 패스워드가 일치하지 않으면 "Wrong Access." 출력하고 종료
 			return;
 		}
+		
 		selectMenu(input, bookManagement);
 		putObject(bookManagement,"bookmanagement.ser");
 	}

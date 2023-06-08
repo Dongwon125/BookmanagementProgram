@@ -7,11 +7,12 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class FairyTaleD extends JFrame{
-	public FairyTaleD() {
-		this.setTitle("ADD Books");
-		this.setSize(400,400);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+import listeners.ButtonAddListener;
+
+public class FairyTaleD extends JPanel{
+	DefaultFrame Frame;
+	public FairyTaleD(DefaultFrame Frame) {
+		this.Frame = Frame;
 		JPanel panel1 = new JPanel();
 		JPanel panel2 = new JPanel();
 		JLabel label = new JLabel("FairyTale Detail");
@@ -19,6 +20,10 @@ public class FairyTaleD extends JFrame{
 		JButton button2 = new JButton("Original FairyTales");
 		JButton button3 = new JButton("Supernatural Thriler");
 		 
+		button1.addActionListener(new ButtonAddListener(Frame));
+		button2.addActionListener(new ButtonAddListener(Frame));
+		button3.addActionListener(new ButtonAddListener(Frame));
+		
 		panel1.add(label);
 		panel2.add(button1);
 		panel2.add(button2);

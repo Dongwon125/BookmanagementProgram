@@ -1,4 +1,0 @@
-6월 02, 2023 9:27:14 오전 log.EventLogger log
-INFO: Accessing PW
-6월 02, 2023 9:27:43 오전 log.EventLogger log
-INFO: Add Books

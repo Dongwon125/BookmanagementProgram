@@ -7,11 +7,16 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
+import listeners.ButtonAddListener;
+import listeners.ButtonGoBackMenu;
 
 
-public class BookAdder extends JFrame {
-	public BookAdder() {
-		this.setTitle("ADD Books");
+
+public class BookAdder extends JPanel {
+	DefaultFrame Frame;
+	public BookAdder(DefaultFrame frame) {
+		this.Frame = frame;
+		
 		JPanel panel = new JPanel();
 		panel.setLayout(new SpringLayout());
 		JLabel Add = new JLabel("Add Book");
@@ -39,18 +44,19 @@ public class BookAdder extends JFrame {
 		labelTitle.setLabelFor(fieldId);
 		panel.add(labelId);
 		panel.add(fieldId);
+		JButton b1 = new JButton("Add");
+		JButton b2 = new JButton("Cancel");
+		panel.add(b1);
+		panel.add(b2);
 		
-		panel.add(new JButton("Add"));
-		panel.add(new JButton("Cancel"));
-		
+		b1.addActionListener(new ButtonGoBackMenu(Frame));
+		b2.addActionListener(new ButtonGoBackMenu(Frame));
 		
 		SpringUtilities.makeCompactGrid(panel, 5, 2, 6, 6, 6, 6);
 		
-		this.setSize(300, 300); 
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		this.setContentPane(panel);
-		this.setVisible(true);
+		this.add(panel);
+		
 		
 		
 	}

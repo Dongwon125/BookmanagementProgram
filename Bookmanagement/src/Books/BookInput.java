@@ -7,6 +7,16 @@ import exception.PubFormatException;
 public interface BookInput {
 	public int getBookId();
 	
+	public String getTitle();
+	
+	public String getAuthor();
+	
+	public String getPublisher();
+	
+	public String getKindString();
+	
+	public String getKindDetail();
+	 
 	public void getUserInput(Scanner input); 
 
 	public void setTitle(String title);

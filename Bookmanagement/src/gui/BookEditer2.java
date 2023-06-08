@@ -7,9 +7,12 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
-public class BookEditer2 extends JFrame{
-	public BookEditer2() {
-		this.setTitle("Edit Books");
+import listeners.ButtonGoBackMenu;
+
+public class BookEditer2 extends JPanel{
+	DefaultFrame Frame;
+	public BookEditer2(DefaultFrame Frame) {
+		this.Frame = Frame;
 		JPanel panel = new JPanel();
 		panel.setLayout(new SpringLayout());
 		JLabel Edit = new JLabel("Edit Books");
@@ -37,18 +40,20 @@ public class BookEditer2 extends JFrame{
 		labelTitle.setLabelFor(fieldId);
 		panel.add(labelId);
 		panel.add(fieldId);
-		
-		panel.add(new JButton("Edit"));
-		panel.add(new JButton("Cancel"));
+		JButton b1 = new JButton("Edit");
+		JButton b2 = new JButton("cancel");
+		panel.add(b1);
+		panel.add(b2);
+		b1.addActionListener(new ButtonGoBackMenu(Frame));
+		b2.addActionListener(new ButtonGoBackMenu(Frame));
 		
 		
 		SpringUtilities.makeCompactGrid(panel, 5, 2, 6, 6, 6, 6);
 		
-		this.setSize(300, 300); 
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	
 		
-		this.setContentPane(panel);
-		this.setVisible(true);
+		this.add(panel);
+		
 		
 	}
 

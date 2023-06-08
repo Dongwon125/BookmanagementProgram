@@ -7,11 +7,12 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class ThrilerD extends JFrame{
-	public ThrilerD() {
-		this.setTitle("ADD Books");
-		this.setSize(400,400);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+import listeners.ButtonAddListener;
+
+public class ThrilerD extends JPanel{
+	DefaultFrame Frame;
+	public ThrilerD(DefaultFrame Frame) {
+		this.Frame = Frame;
 		JPanel panel1 = new JPanel();
 		JPanel panel2 = new JPanel();
 		JLabel label = new JLabel("Thriler Detail");
@@ -24,12 +25,15 @@ public class ThrilerD extends JFrame{
 		panel2.add(button2);
 		panel2.add(button3);
 		
+		button1.addActionListener(new ButtonAddListener(Frame));
+		button2.addActionListener(new ButtonAddListener(Frame));
+		button3.addActionListener(new ButtonAddListener(Frame));
 		
 		
 		
 		this.add(panel1, BorderLayout.NORTH);
 		this.add(panel2,BorderLayout.CENTER);
-		this.setVisible(true);
+		
 	}
 
 }

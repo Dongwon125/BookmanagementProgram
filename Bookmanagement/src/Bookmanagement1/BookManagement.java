@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+
+import Books.Book;
 import Books.BookInput;
 import Books.BookKind;
 import Books.FairyTale;
@@ -161,6 +163,12 @@ public class BookManagement implements Serializable {
        bookInput.printInfo();
     }
  }
+    public int size() {
+    	return Books.size();
+    }
+    public BookInput get(int index) {
+    	return (Book) Books.get(index);
+    }
     public void showEditBooks() {
         System.out.println("### Book's Info Edit Menu ###");
         System.out.println("1. Edit Title");
